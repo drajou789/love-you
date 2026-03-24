@@ -105,7 +105,7 @@ function Rise() {
         if (distance >= target) {
             clearInterval(timer2);
 
-            console.log("升空结束");
+            console.log("升空完毕");
 
         }
 
