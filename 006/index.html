@@ -1,26 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
-    <title>Dear Sun</title>
-    <meta name="language" content="en-US">
-    <meta name="title" content="Dear Sun">
-    <meta name="description" content="Collecting this wasn't easy — your star is my motivation to keep going! Contributions are welcome too.">
-    <link rel="icon" type="image/x-icon" href="images/'I LOVE U' Rectangle Magnet _ Spreadshirt.jpg">
+    <title>Heart of Love</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Amiri&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/love.css">
 </head>
+<body onclick="playAudio()">
 
-
-<body>
-
-    <audio autoplay="autopaly" loop="loop" id="audios" preload="auto">
-        <source src="MP3/1.mp3" />
+    <audio loop id="audios" preload="auto">
+        <source src="MP3/1.mp3" type="audio/mpeg" />
     </audio>
 
-    <div class="container" onselectstart="return false;" unselectable="on" style="-moz-user-select:none;">
-
+    <div class="container">
         <div class="body_left">
-            <img src="images/biubiubiu.gif" alt="" ondragstart='return false;'>
+            <img src="images/biubiubiu.gif" alt="Biu Biu">
         </div>
 
         <div class="body_center love">
@@ -31,6 +25,13 @@
                 <div class="div4"></div>
             </div>
         </div>
+
+        <div id="message-box">
+            <p class="love-text">إلى أغلى إنسانة..</p>
+            <p class="sub-text">مكانك في هذا القلب لا يملؤه غيرك، أنتِ أجمل صدفة في حياتي.</p>
+        </div>
+
+        <div id="words">I Love You</div>
     </div>
 
     <div class="footer">
@@ -40,8 +41,12 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="js/love.js"></script>
-
+    <script src="js/love.js"></script>
+    <script>
+        function playAudio() {
+            var audio = document.getElementById("audios");
+            audio.play();
+        }
+    </script>
 </body>
-
 </html>
