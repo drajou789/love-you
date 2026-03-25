@@ -2,7 +2,7 @@
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
-    <title>Heart of Love</title>
+    <title>Heart Animation - Final Version</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Amiri&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/love.css">
 </head>
@@ -14,21 +14,19 @@
 
     <div class="container">
         <div class="body_left">
-            <img src="images/biubiubiu.gif" alt="Biu Biu">
+            <img src="images/biubiubiu.gif" alt="sticker">
         </div>
 
-        <div class="body_center love">
+        <div class="body_center love" id="love_heart">
             <div class="block">
-                <div class="div1"></div>
-                <div class="div2"></div>
-                <div class="div3"></div>
-                <div class="div4"></div>
+                <div class="div1"></div><div class="div2"></div>
+                <div class="div3"></div><div class="div4"></div>
             </div>
         </div>
 
         <div id="message-box">
             <p class="love-text">إلى أغلى إنسانة..</p>
-            <p class="sub-text">مكانك في هذا القلب لا يملؤه غيرك، أنتِ أجمل صدفة في حياتي.</p>
+            <p class="sub-text">مكانك في هذا القلب لا يملؤه غيرك، أنتِ أجمل ما حدث لي.</p>
         </div>
 
         <div id="words">I Love You</div>
@@ -43,10 +41,7 @@
 
     <script src="js/love.js"></script>
     <script>
-        function playAudio() {
-            var audio = document.getElementById("audios");
-            audio.play();
-        }
+        function playAudio() { document.getElementById("audios").play(); }
     </script>
 </body>
 </html>

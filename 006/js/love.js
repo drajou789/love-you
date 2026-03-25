@@ -23,54 +23,42 @@ const offset_pitn = {
 
 let blocks = document.getElementsByClassName("block"),
     block = blocks[0],
-    love = document.getElementsByClassName("love")[0],
+    love_container = document.getElementById("love_heart"),
     timer = null, index = 0;
 
 function Next() {
     index++;
     if (index >= 24) {
         clearInterval(timer);
-        // انتظر ثانية واحدة بعد اكتمال الرسم ثم اصعد
-        setTimeout(Rise, 1000);
+        // ملي يسالي الرسم كيطير ويغبر
+        RiseAndShow();
         return;
     }
     block.style.visibility = "visible";
-    let block_left = parseFloat(window.getComputedStyle(block).left);
-    let block_top = parseFloat(window.getComputedStyle(block).top);
-
     let new_block = block.cloneNode(true);
-    new_block.style.left = block_left + 40 * offset_pitn["block" + index][0] + "px";
-    new_block.style.top = block_top - 40 * offset_pitn["block" + index][1] + "px";
+    new_block.style.left = (40 * offset_pitn["block" + index][0]) + "px";
+    new_block.style.top = (40 * -offset_pitn["block" + index][1]) + "px";
     
     for (let i = 0; i < new_block.children.length; i++) {
         new_block.children[i].style.left = blk_pitn["block" + index][i][0] * -40 + "px";
         new_block.children[i].style.top = blk_pitn["block" + index][i][1] * -40 + "px";
     }
-    love.appendChild(new_block);
+    love_container.appendChild(new_block);
 }
 
-function Rise() {
-    let distance = 0;
-    const target = 180; // المسافة التي سيصعدها القلب للأعلى
-    let love_top = parseFloat(window.getComputedStyle(love).top);
+function RiseAndShow() {
+    // 1. طبق كلاس الاختفاء (القلب كيطير ويغبر)
+    love_container.classList.add("fade-out");
 
-    let timer2 = setInterval(() => {
-        distance += 1; // حركة بطيئة وناعمة
-        if (distance >= target) {
-            clearInterval(timer2);
-            // إظهار الرسالة والكلمة النهائية
-            document.getElementById("message-box").classList.add("reveal");
-            setTimeout(() => {
-                document.getElementById("words").style.opacity = "1";
-            }, 1500);
-        }
-        love.style.top = (love_top - distance) + "px";
-    }, 15);
+    // 2. أظهر الرسالة في وسط الشاشة
+    setTimeout(() => {
+        document.getElementById("message-box").classList.add("show-msg");
+        document.getElementById("words").style.opacity = "1";
+    }, 1000);
 }
 
 window.onload = function () {
-    // الانتظار الأصلي 12 ثانية
-    setTimeout(() => {
+    setTimeout(function () {
         timer = setInterval(Next, 300);
     }, 12000); 
 };
